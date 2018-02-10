@@ -2,6 +2,7 @@ package com.example.android.quakereport;
 
 
 //Объект, имеет 3 параметра
+//Объект, имеет 3 параметра
 public class QuakeInf {
 
     //Магнитуда
@@ -10,11 +11,13 @@ public class QuakeInf {
     private String mLocation;
     //Когда произошло
     private long mMillisecondsTime;
+
+    private String mUrl;
     //Цвет фона
 
     //Создание объекта
-    public QuakeInf (double qMag, String qLocation, long qDate ){
-
+    public QuakeInf (double qMag, String qLocation, long qDate, String qUrl ){
+        mUrl = qUrl;
         mMag = qMag;
         mLocation = qLocation;
         mMillisecondsTime = qDate;
@@ -23,7 +26,7 @@ public class QuakeInf {
     public double getMag(){
         return mMag;
     }
-//Получить параметр Расположение
+    //Получить параметр Расположение
     public String getLocation(){
         return mLocation;
     }
@@ -31,6 +34,9 @@ public class QuakeInf {
     public long getDate() {
         return mMillisecondsTime;
     }
-    //Получение айди цвета
+
+    public String getUrl() {
+        return mUrl;
+    }
 
 }
