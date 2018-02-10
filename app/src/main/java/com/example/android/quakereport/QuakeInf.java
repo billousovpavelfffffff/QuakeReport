@@ -1,8 +1,5 @@
 package com.example.android.quakereport;
 
-/**
- * Created by geggg on 09.02.2018.
- */
 
 //Объект, имеет 3 параметра
 public class QuakeInf {
@@ -13,6 +10,7 @@ public class QuakeInf {
     private String mLocation;
     //Когда произошло
     private long mMillisecondsTime;
+    //Цвет фона
 
     //Создание объекта
     public QuakeInf (double qMag, String qLocation, long qDate ){
@@ -33,4 +31,6 @@ public class QuakeInf {
     public long getDate() {
         return mMillisecondsTime;
     }
+    //Получение айди цвета
+
 }
