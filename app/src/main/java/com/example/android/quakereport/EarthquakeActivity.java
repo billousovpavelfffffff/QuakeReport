@@ -57,6 +57,7 @@ public class EarthquakeActivity extends AppCompatActivity {
             return result;
         }
         protected void onPostExecute( ArrayList<QuakeInf> resault) {
+            if (quakeInfAdapter != null)
             quakeInfAdapter.clear();
 
             if (resault == null) {
