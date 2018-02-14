@@ -26,10 +26,9 @@ public final class QueryUtils {
 
 
     public static ArrayList<QuakeInf> fetchEarthquakeData(String requestUrl) {
-        // Create URL object
+        // Создание URL объекта
         URL url = createUrl(requestUrl);
 
-        // Perform HTTP request to the URL and receive a JSON response back
         String jsonResponse = null;
         try {
             jsonResponse = makeHttpRequest(url);
@@ -37,10 +36,7 @@ public final class QueryUtils {
             Log.e(LOG_TAG, "Error closing input stream", e);
         }
 
-        // Extract relevant fields from the JSON response and create an {@link Event} object
         ArrayList<QuakeInf>  earthquake = extractEarthquakes(jsonResponse);
-
-        // Return the {@link Event}
         return earthquake;
     }
 
@@ -58,8 +54,6 @@ public final class QueryUtils {
 
     private static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
-
-        // If the URL is null, then return early.
         if (url == null) {
             return jsonResponse;
         }
@@ -67,14 +61,14 @@ public final class QueryUtils {
         HttpURLConnection urlConnection = null;
         InputStream inputStream = null;
         try {
+            //Создание подключения к интернету
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setReadTimeout(10000 /* milliseconds */);
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
 
-            // If the request was successful (response code 200),
-            // then read the input stream and parse the response.
+            // Если подклучение успешно readFromStream
             if (urlConnection.getResponseCode() == 200) {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);

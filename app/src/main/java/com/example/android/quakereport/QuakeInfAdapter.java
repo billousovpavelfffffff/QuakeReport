@@ -43,9 +43,9 @@ public class QuakeInfAdapter extends ArrayAdapter<QuakeInf> {
         TextView magTextView = (TextView) listItemView.findViewById(R.id.mag);
 
         GradientDrawable magnitudeCircle = (GradientDrawable) magTextView.getBackground();
-        // Get the appropriate background color based on the current earthquake magnitude
+
         int magnitudeColor = getMagnitudeColor(currentQuake.getMag());
-        // Set the color on the magnitude circle
+
         magnitudeCircle.setColor(magnitudeColor);
         String formattedMagnitude = formatMagnitude(currentQuake.getMag());
         magTextView.setText(formattedMagnitude);
@@ -101,11 +101,7 @@ public class QuakeInfAdapter extends ArrayAdapter<QuakeInf> {
         return magnitudeFormat.format(magnitude);
     }
 
-    /**
-     +     * Return the color for the magnitude circle based on the intensity of the earthquake.
-     +     *
-     +     * @param magnitude of the earthquake
-     +     */
+
     private int getMagnitudeColor(double magnitude) {
         int magnitudeColorResourceId;
         int magnitudeFloor = (int) Math.floor(magnitude);

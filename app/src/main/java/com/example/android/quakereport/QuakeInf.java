@@ -2,7 +2,6 @@ package com.example.android.quakereport;
 
 
 //Объект, имеет 3 параметра
-//Объект, имеет 3 параметра
 public class QuakeInf {
 
     //Магнитуда
@@ -34,7 +33,7 @@ public class QuakeInf {
     public long getDate() {
         return mMillisecondsTime;
     }
-
+    //Получение Юрлки
     public String getUrl() {
         return mUrl;
     }
