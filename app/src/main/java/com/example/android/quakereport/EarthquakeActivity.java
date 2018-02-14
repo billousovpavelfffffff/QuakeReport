@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
 public class EarthquakeActivity extends AppCompatActivity {
 
+    private QuakeInfAdapter quakeInfAdapter;
     public static final String LOG_TAG = EarthquakeActivity.class.getName();
     private static final String USGS_REQUEST_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time&minmag=1&limit=20";
 
@@ -56,6 +57,8 @@ public class EarthquakeActivity extends AppCompatActivity {
             return result;
         }
         protected void onPostExecute( ArrayList<QuakeInf> resault) {
+            quakeInfAdapter.clear();
+
             if (resault == null) {
                 return;
             }
@@ -75,7 +78,7 @@ public class EarthquakeActivity extends AppCompatActivity {
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
 
         // Создания нового ArrayAdapter
-        final QuakeInfAdapter quakeInfAdapter = new QuakeInfAdapter(this, earthquake);
+        quakeInfAdapter = new QuakeInfAdapter(this, earthquake);
         earthquakeListView.setAdapter(quakeInfAdapter);
 
         earthquakeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
